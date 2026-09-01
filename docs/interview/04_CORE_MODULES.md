@@ -59,9 +59,9 @@
 
 ## 5. 时间同步 —— 状态：v1.3 功能，源码缺失
 
-- **功能**：README 称 v1.3_release_test 含"时间同步"（用于给记录文件/实时流打准确时间戳）。
-- **现实**：v1.3 目录是空 gitlink；v1.2 中时间来自 `gettimeofday/localtime_r`（`data_recorder.c` L114-L124 `format_iso_timestamp`），**未实现任何外部时间同步（无 SNTP/NTP 代码）**。grep `scripts/` 与 `main/` 均无 `sntp`/`ntp` 调用。
-- **结论**：时间同步协议**无法从仓库取证**，标 **【待本人确认】**。v1.2 的记录时间戳依赖上电后系统时钟（ESP32 无 RTC 电池时默认从 1970/构建时间起算），这是可讲的真实边界。
+- **功能**：README 称 v1.3_release_test 含"时间同步"（用于给记录文件/实时流打准确时间戳）；**作者自述（【作者实习记录】）确认 v1.3 含时间同步功能**。
+- **现实**：v1.3 目录是空 gitlink，**源码未入库**；v1.2 中时间来自 `gettimeofday/localtime_r`（`data_recorder.c` L114-L124 `format_iso_timestamp`），**未实现任何外部时间同步（无 SNTP/NTP 代码）**。grep `scripts/` 与 `main/` 均无 `sntp`/`ntp` 调用。
+- **结论**：时间同步协议**无法从仓库取证**【待本人确认】。v1.2 的记录时间戳依赖上电后系统时钟（ESP32 无 RTC 电池时默认从 1970/构建时间起算），这是可讲的真实边界。
 
 ## 6. 安全测试模式 —— 状态：v1.3 功能，源码缺失
 
